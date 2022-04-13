@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preloader Example</title>
+
+    <style>
+        .loader {
+            background: none repeat scroll 0 0 #fff;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            z-index: 9999;
+        }
+
+        .loader-inner {
+            position: absolute;
+            background: #fff url('./r.gif') center center no-repeat;
+            background-size: cover;
+            height: 60px;
+            width: 60px;
+            margin: -30px 0 0 -30px;
+            left: 50%;
+            top: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- At the beginning of the body -->
+    <div class="loader">
+        <div class="loader-inner"></div>
+    </div>
+
+
+       <h1>your Web page</h1>
+
+    <!-- At the end of the body -->
+    <script type="text/javascript">
+        // makes sure the whole site is loaded
+        $(document).ready(function () {
+            setTimeout(function () {
+                $(".loader").fadeOut("slow");
+            }, 400);
+        });
+        $(window).load(function () {
+            $(".loader-inner").fadeOut();
+        });
+    </script>
+</body>
+
+</html>
